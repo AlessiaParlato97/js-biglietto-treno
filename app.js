@@ -1,19 +1,21 @@
+
+
 console.log('Esercizio Biglietti del treno')
 
 
 //chiedere km da percorrere all'utente
 let km = prompt('Inserisci i km che vuoi percorrere');
-console.log(km)
+console.log(km + ' km ')
 
 //chiedere l'età all'utente
 let eta = prompt('Inserisci la tua età');
-console.log(eta);
+console.log(eta + ' anni ');
 
 //calcolare il prezzo base in base ai km da percorrere
-let prezzoPerKm = (km * 0.21); 2
+let prezzoPerKm = (km * 0.21);
+
 
 //calcolare il prezzo in base all'età
-
 //calcolo per minori
 if (eta < 18) {
     let calcoloSconto18 = (prezzoPerKm * 20) / 100;
@@ -22,6 +24,7 @@ if (eta < 18) {
     let prezzoScontato18 = (prezzoPerKm - calcoloSconto18);
     console.log('Il prezzo scontato del biglietto è di ' + prezzoScontato18 + ' euro');
 
+    //calcolo per over 65
 } else if (eta > 65) {
     let calcoloSconto65 = (prezzoPerKm * 40) / 100;
     console.log('Lo sconto applicato per gli over 65 è di ' + calcoloSconto65 + ' euro');
@@ -33,12 +36,14 @@ if (eta < 18) {
     console.log('Il prezzo è di ' + prezzoPerKm + ' euro');
 }
 
-
-
-function numeroDecimale(prezzoPerKm) {
+function formattaPrezzo(prezzoPerKm) {
     return prezzoPerKm.toFixed(2);
-
-    let nuovoNumero = numeroDecimale(prezzoPerKm);
-    console.log("Numero formattato: " + numeroDecimale);
 }
 
+function formattaPrezzo(prezzoScontato18) {
+    return prezzoScontato18.toFixed(2);
+}
+
+function formattaPrezzo(prezzoScontato65) {
+    return prezzoScontato65.toFixed(2);
+}
