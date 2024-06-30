@@ -19,7 +19,7 @@ let prezzoPerKm = (km * 0.21);
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    let risultato
+    let risultato;
 
     if (eta < 18) {
         //calcolo per minori di 18 anni
@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('Lo sconto applicato per i minori è di ' + calcoloSconto18 + ' euro');
 
         let prezzoScontato18 = (prezzoPerKm - calcoloSconto18);
-        risultato = prezzoScontato18;
-        console.log('Il prezzo scontato del biglietto è di ' + prezzoScontato18 + ' euro');
+        risultato = prezzoScontato18.toFixed(2);
+        console.log('Il prezzo scontato del biglietto è di ' + risultato + ' euro');
 
         //calcolo per over 65
     } else if (eta > 65) {
@@ -36,27 +36,15 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log('Lo sconto applicato per gli over 65 è di ' + calcoloSconto65 + ' euro');
 
         let prezzoScontato65 = (prezzoPerKm - calcoloSconto65);
-        risultato = prezzoScontato65;
-        console.log('Il prezzo scontato del biglietto è di ' + prezzoScontato65 + ' euro');
+        risultato = prezzoScontato65.toFixed(2);
+        console.log('Il prezzo scontato del biglietto è di ' + risultato + ' euro');
 
     } else {
-        risultato = prezzoPerKm;
-        console.log('Il prezzo è di ' + prezzoPerKm + ' euro');
+        risultato = prezzoPerKm.toFixed(2);
+        console.log('Il prezzo è di ' + risultato + ' euro');
 
-    }
-
-    function formattaPrezzo(prezzoPerKm) {
-        return prezzoPerKm.toFixed(2);
-    }
-
-    function formattaPrezzo(prezzoScontato18) {
-        return prezzoScontato18.toFixed(2);
-    }
-
-    function formattaPrezzo(prezzoScontato65) {
-        return prezzoScontato65.toFixed(2);
     }
     //Stampa risultato
-    document.getElementById("risultato").textContent = risultato;
+    document.getElementById("risultato").textContent = risultato + ' EURO ';
 });
 
