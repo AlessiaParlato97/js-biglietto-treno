@@ -16,34 +16,47 @@ let prezzoPerKm = (km * 0.21);
 
 
 //calcolare il prezzo in base all'età
-//calcolo per minori
-if (eta < 18) {
-    let calcoloSconto18 = (prezzoPerKm * 20) / 100;
-    console.log('Lo sconto applicato per i minori è di ' + calcoloSconto18 + ' euro');
 
-    let prezzoScontato18 = (prezzoPerKm - calcoloSconto18);
-    console.log('Il prezzo scontato del biglietto è di ' + prezzoScontato18 + ' euro');
+document.addEventListener("DOMContentLoaded", function () {
 
-    //calcolo per over 65
-} else if (eta > 65) {
-    let calcoloSconto65 = (prezzoPerKm * 40) / 100;
-    console.log('Lo sconto applicato per gli over 65 è di ' + calcoloSconto65 + ' euro');
+    let risultato
 
-    let prezzoScontato65 = (prezzoPerKm - calcoloSconto65);
-    console.log('Il prezzo scontato del biglietto è di ' + prezzoScontato65 + ' euro');
+    if (eta < 18) {
+        //calcolo per minori di 18 anni
+        let calcoloSconto18 = (prezzoPerKm * 20) / 100;
+        console.log('Lo sconto applicato per i minori è di ' + calcoloSconto18 + ' euro');
 
-} else {
-    console.log('Il prezzo è di ' + prezzoPerKm + ' euro');
-}
+        let prezzoScontato18 = (prezzoPerKm - calcoloSconto18);
+        risultato = prezzoScontato18;
+        console.log('Il prezzo scontato del biglietto è di ' + prezzoScontato18 + ' euro');
 
-function formattaPrezzo(prezzoPerKm) {
-    return prezzoPerKm.toFixed(2);
-}
+        //calcolo per over 65
+    } else if (eta > 65) {
+        let calcoloSconto65 = (prezzoPerKm * 40) / 100;
+        console.log('Lo sconto applicato per gli over 65 è di ' + calcoloSconto65 + ' euro');
 
-function formattaPrezzo(prezzoScontato18) {
-    return prezzoScontato18.toFixed(2);
-}
+        let prezzoScontato65 = (prezzoPerKm - calcoloSconto65);
+        risultato = prezzoScontato65;
+        console.log('Il prezzo scontato del biglietto è di ' + prezzoScontato65 + ' euro');
 
-function formattaPrezzo(prezzoScontato65) {
-    return prezzoScontato65.toFixed(2);
-}
+    } else {
+        risultato = prezzoPerKm;
+        console.log('Il prezzo è di ' + prezzoPerKm + ' euro');
+
+    }
+
+    function formattaPrezzo(prezzoPerKm) {
+        return prezzoPerKm.toFixed(2);
+    }
+
+    function formattaPrezzo(prezzoScontato18) {
+        return prezzoScontato18.toFixed(2);
+    }
+
+    function formattaPrezzo(prezzoScontato65) {
+        return prezzoScontato65.toFixed(2);
+    }
+    //Stampa risultato
+    document.getElementById("risultato").textContent = risultato;
+});
+
