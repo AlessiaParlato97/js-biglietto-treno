@@ -32,3 +32,13 @@ if (eta < 18) {
 } else {
     console.log('Il prezzo è di ' + prezzoPerKm + ' euro');
 }
+
+
+
+function numeroDecimale(prezzoPerKm) {
+    return prezzoPerKm.toFixed(2);
+
+    let nuovoNumero = numeroDecimale(prezzoPerKm);
+    console.log("Numero formattato: " + numeroDecimale);
+}
+
